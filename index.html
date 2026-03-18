@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="container">
-            <div class="update-badge">2026年3月最新版</div>
+            <div class="update-badge" id="currentDateBadge">2026年3月最新版</div>
             <h1>SIM比較ラボ</h1>
             <p class="hero-subline">後悔しない格安SIM選びを、最短30秒で。</p>
             <p class="hero-desc">20社以上のプランを徹底比較。あなたに「ちょうどいい」1枚を厳選紹介。</p>
@@ -21,6 +21,28 @@
     </header>
 
     <div class="container">
+        <!-- Quick Guide -->
+        <section class="guide-section">
+            <h3 style="text-align: center; color: var(--primary);">失敗しないSIM選び 3つのステップ</h3>
+            <div class="guide-grid">
+                <div class="guide-step">
+                    <span class="step-num">1</span>
+                    <p style="font-size: 0.9rem; font-weight: 700;">今のギガ数を確認</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">設定アプリから月々の使用量を見てみよう</p>
+                </div>
+                <div class="guide-step">
+                    <span class="step-num">2</span>
+                    <p style="font-size: 0.9rem; font-weight: 700;">通話が必要か判断</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">LINE通話メインなら、カケホは不要かも</p>
+                </div>
+                <div class="guide-step">
+                    <span class="step-num">3</span>
+                    <p style="font-size: 0.9rem; font-weight: 700;">セット割をチェック</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">お家のネットと合わせるとさらに安くなる！</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Category Navigation -->
         <nav class="cat-nav">
             <button class="cat-btn active" data-cat="all">すべて</button>
@@ -30,7 +52,9 @@
         </nav>
 
         <section id="rankingContainer" class="ranking-section">
-            <div style="text-align: center; padding: 40px;">プランを読み込み中...</div>
+            <div class="skeleton-card skeleton"></div>
+            <div class="skeleton-card skeleton"></div>
+            <div class="skeleton-card skeleton"></div>
         </section>
 
         <footer style="margin-top: 80px; text-align: center; color: var(--text-muted); padding: 40px 0;">

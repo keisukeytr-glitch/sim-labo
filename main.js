@@ -1,16 +1,25 @@
-// SIM比較ラボ NEXT-SIM
-// カテゴリー別のランキングと比較ロジック
-
 document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('rankingContainer');
     const catButtons = document.querySelectorAll('.cat-btn');
+    const dateBadge = document.getElementById('currentDateBadge');
     let allPlans = [];
+
+    // 0. 動的日付の更新 (2026年3月最新版 など)
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    if (dateBadge) {
+        dateBadge.innerText = `${year}年${month}月最新版`;
+    }
 
     // 1. データの読み込み
     try {
+        // デモ用にわざと少し遅延させる（スケルトンを見せるため）
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
         const response = await fetch('plans.json');
         allPlans = await response.json();
-        renderRanking('all'); // 初期表示はすべて
+        renderRanking('all'); 
     } catch (error) {
         console.error('データの読み込みに失敗しました:', error);
         container.innerHTML = '<div class="error">データの読み込みに失敗しました。</div>';
@@ -25,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             filtered = allPlans.filter(p => p.category === category);
         }
 
-        // 推奨度（isRecommended）でソートしつつ、上位を表示
+        // 推奨度（isRecommended）でソート
         filtered.sort((a, b) => (b.isRecommended === a.isRecommended) ? 0 : b.isRecommended ? 1 : -1);
 
         filtered.forEach((plan, index) => {
@@ -47,6 +56,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 <div class="card-content">
                     <div class="spec-col">
+                        <!-- Killer Phrase (Phase 2) -->
+                        ${plan.killerPhrase ? `<span class="killer-phrase">${plan.killerPhrase}</span>` : ''}
+                        
                         <div class="price-box">
                             <span style="font-size: 0.8rem; color: var(--text-muted);">月額料金目安</span><br>
                             <span class="price-main">¥${plan.price.toLocaleString()}</span>
@@ -78,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
 
                 <div class="cta-area" style="padding: 0 40px 40px;">
-                    <a href="${plan.url}" class="btn-official" target="_blank" style="border-radius: 15px;">
+                    <a href="${plan.url}" class="btn-cta-positive" target="_blank">
                         <span style="font-size: 0.8rem; opacity: 0.9; display: block; margin-bottom: 2px;">期間限定キャンペーン実施中</span>
                         ${plan.carrier} 公式サイトで詳細を見る
                     </a>
@@ -91,11 +103,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 3. カテゴリーナビゲーションの動作
     catButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // アクティブ状態の切り替え
             catButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
-            // フィルタリング実行
             renderRanking(btn.dataset.cat);
         });
     });

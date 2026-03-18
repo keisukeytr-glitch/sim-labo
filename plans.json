@@ -30,7 +30,8 @@
     "cons": ["180日間利用がないと利用停止の恐れ", "トッピングの手間がかかる"],
     "url": "https://povo.jp/",
     "isRecommended": false,
-    "category": "cheap"
+    "category": "cheap",
+    "killerPhrase": "基本料0円から。必要な時だけトッピングする自由なスタイル"
   },
   {
     "id": "linemo-mini",
@@ -46,7 +47,8 @@
     "cons": ["3GBを超えると低速(300kbps)", "留守番電話が有料オプション"],
     "url": "https://www.linemo.jp/",
     "isRecommended": false,
-    "category": "cheap"
+    "category": "cheap",
+    "killerPhrase": "LINEのギガ消費ゼロ。月額990円でソフトバンク品質を"
   },
   {
     "id": "rakuten-saikyo",
