@@ -77,8 +77,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </div>
 
-                <div class="cta-area">
-                    <a href="${plan.url}" class="btn-official" target="_blank">${plan.carrier} 公式サイトへ</a>
+                <div class="cta-area" style="padding: 0 40px 40px;">
+                    <a href="${plan.url}" class="btn-official" target="_blank" style="border-radius: 15px;">
+                        <span style="font-size: 0.8rem; opacity: 0.9; display: block; margin-bottom: 2px;">期間限定キャンペーン実施中</span>
+                        ${plan.carrier} 公式サイトで詳細を見る
+                    </a>
                 </div>
             `;
             container.appendChild(card);
