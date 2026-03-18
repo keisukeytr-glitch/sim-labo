@@ -42,8 +42,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.className = 'review-card';
             
             const stars = '★'.repeat(plan.speedScore) + '☆'.repeat(5 - plan.speedScore);
-            const prosList = plan.pros.map(p => `<li>${p}</li>`).join('');
-            const consList = plan.cons.map(c => `<li>${c}</li>`).join('');
+            
+            // 内容に応じてアイコンを付与
+            const prosList = plan.pros.map(p => {
+                let icon = '🧡';
+                if (p.includes('速度') || p.includes('安定')) icon = '⚡';
+                if (p.includes('円') || p.includes('安')) icon = '💰';
+                if (p.includes('ポイント')) icon = '🛍️';
+                if (p.includes('海外')) icon = '✈️';
+                if (p.includes('家族')) icon = '👨‍👩‍👧‍👦';
+                return `<li>${icon} ${p}</li>`;
+            }).join('');
+            
+            const consList = plan.cons.map(c => `<li>💡 ${c}</li>`).join('');
 
             card.innerHTML = `
                 <div class="card-header">
