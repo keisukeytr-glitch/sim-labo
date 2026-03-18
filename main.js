@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const consList = plan.cons.map(c => `<li>💡 ${c}</li>`).join('');
 
             card.innerHTML = `
+                ${plan.isRecommended ? `<div class="recommended-ribbon">⭐ 編集部イチオシ</div>` : ''}
                 <div class="card-header">
                     <div class="rank-badge">${index + 1}位</div>
                     <div class="header-text">
