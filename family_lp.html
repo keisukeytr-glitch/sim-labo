@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>そのスマホ代、年間14万円も損してる？ | SIM比較ラボ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .lp-header { background: white; padding: 20px; text-align: center; border-radius: 20px; margin-bottom: 20px; }
+        .benefit-badge { background: var(--accent); padding: 5px 15px; border-radius: 10px; font-weight: 900; margin-bottom: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SIM比較ラボ</h1>
+            <p style="color: var(--text-muted); font-weight: 500;">あなたに最適な回線を「タイプ別」に見つける徹底比較メディア</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="lp-hero" style="background: white; padding: 40px; margin-bottom: 30px;">
+            <span class="crisis-text">⚠️ 2026年3月、家計の常識が変わります</span>
+            <h1 style="font-size: 2.2rem; color: #1e293b; letter-spacing: -1px;">
+                家族3人で月2万円は<br>
+                <span style="color: var(--danger); text-decoration: underline;">完全な「払いすぎ」</span>です。
+            </h1>
+            <p style="margin-top: 20px; font-weight: bold; color: var(--text-muted);">
+                年間で144,000円。そのお金、<br>
+                本当なら今頃「家族旅行」に使えていました。
+            </p>
+        </section>
+
+        <!-- セクション2: 4社タイプ別診断 -->
+        <section class="diag-card">
+            <h2 style="text-align: center;">🔍 あなたの「正解」はどこ？<br>タイプ別診断チャート</h2>
+            <p style="text-align: center; color: var(--text-muted);">あてはまるものをクリックしてください</p>
+            
+            <div class="diag-grid">
+                <div class="diag-item" onclick="showResult('unlimited')">「ギガ無制限」がいい！<br>外でも動画を見まくりたい</div>
+                <div class="diag-item" onclick="showResult('balance')">「店舗サポート」も欲しい<br>でも安くしたい</div>
+                <div class="diag-item" onclick="showResult('paypay')">「PayPay」をよく使う！<br>家族でまとめて得したい</div>
+                <div class="diag-item" onclick="showResult('simple')">「海外出張・旅行」が多い<br>設定不要で使いたい</div>
+            </div>
+
+            <div id="diagResult" style="margin-top: 30px; display: none; padding: 25px; background: #fff; border: 2px solid var(--accent); border-radius: 20px; text-align: center;">
+                <h3 id="resultTitle">---</h3>
+                <p id="resultText" style="margin: 15px 0;">---</p>
+                <a id="resultLink" href="#" class="cat-btn active" style="text-decoration: none; display: inline-block;">詳しく見る</a>
+            </div>
+        </section>
+
+        <!-- セクション3: 各社のメリット・デメリット -->
+        <h2 style="text-align: center; margin: 60px 0 30px;">2026年3月最新・4大キャリア徹底比較</h2>
+        <div id="mainRanking" class="ranking-section">
+            <!-- JSで動的に構築：家族向け訴求フレーズを優先表示 -->
+        </div>
+
+        <!-- セクション4: 最もおトクな乗り換えキャンペーン -->
+        <section class="diag-card" style="border-color: var(--accent); background: #fffcf0;">
+            <h3>🎁 2026年3月：注目のキャンペーン</h3>
+            <ul style="margin-top: 20px; list-style: none;">
+                <li style="margin-bottom: 15px;">🚀 <strong>楽天モバイル</strong>: 初めての乗り換えで最大14,000pt還元中！</li>
+                <li style="margin-bottom: 15px;">🧡 <strong>UQモバイル</strong>: au PAY残高最大10,000円分キャッシュバック</li>
+                <li style="margin-bottom: 15px;">🥤 <strong>ワイモバイル</strong>: 2回線目以降「月額1,078円〜」の家族革命</li>
+            </ul>
+        </section>
+
+        <!-- セクション5: クロージング -->
+        <div class="lp-hero" style="background: linear-gradient(to bottom, #fff7ed, #fff);">
+            <h2 style="margin-bottom: 20px;">まずは10,000円、<br>今月の支払いを減らしましょう。</h2>
+            <p style="margin-bottom: 40px; font-weight: bold;">手続きはオンラインで完結。<br>今の番号そのままで「家計革命」を。</p>
+            <a href="index.html" class="btn-official" style="border-radius: 50px;">【無料】もっと詳しく比較する</a>
+        </div>
+    </div>
+
+    <script>
+        function showResult(type) {
+            const res = document.getElementById('diagResult');
+            const title = document.getElementById('resultTitle');
+            const text = document.getElementById('resultText');
+            
+            res.style.display = 'block';
+            
+            if (type === 'unlimited') {
+                title.innerText = '🏆 あなたは「楽天モバイル」派！';
+                text.innerText = 'Wi-Fi代わりに使える無制限プランが最強。プラチナバンド対応で電波の不安も解消されました。';
+            } else if (type === 'balance') {
+                title.innerText = '🏆 あなたは「UQモバイル」派！';
+                text.innerText = 'auショップでの店頭サポートが受けられる安心感。余ったギガを翌月に繰り越せるのがおトクなポイント。';
+            } else if (type === 'paypay') {
+                title.innerText = '🏆 あなたは「ワイモバイル」派！';
+                text.innerText = 'PayPay経済圏なら還元率が異常に高く、2回線目以降の安さは業界トップクラス。主婦層に圧倒的人気です。';
+            } else if (type === 'simple') {
+                title.innerText = '🏆 あなたは「ahamo」派！';
+                text.innerText = '追加料金なしで海外利用OK！30GBの大容量とドコモ品質の通信を、ワンプライスで提供します。';
+            }
+            res.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 本体のデータと連動して比較セクションを表示
+        async function loadComparison() {
+            const container = document.getElementById('mainRanking');
+            const response = await fetch('plans.json');
+            const plans = await response.json();
+            
+            plans.filter(p => p.id !== 'povo-2.0' && p.id !== 'linemo-mini').forEach((plan, i) => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="rank-badge">${i+1}位</div>
+                        <div>
+                            <span class="benefit-badge">2026年3月最新</span>
+                            <h2 style="font-size: 1.5rem;">${plan.name}</h2>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="spec-col">
+                            <div class="price-box">
+                                <span class="price-main">¥${plan.price.toLocaleString()}</span>
+                                <span style="font-size: 0.9rem;">(税込)〜</span>
+                            </div>
+                            <div class="target-box">${plan.killerPhrase || plan.target}</div>
+                        </div>
+                        <div class="analysis-col">
+                            <h4>現場の生の声風レビュー</h4>
+                            <ul class="list-pros">${plan.pros.map(p=>`<li>${p}</li>`).join('')}</ul>
+                        </div>
+                    </div>
+                    <a href="${plan.url}" class="btn-official">${plan.carrier} 公式詳細を見る</a>
+                `;
+                container.appendChild(card);
+            });
+        }
+        loadComparison();
+    </script>
+</body>
+</html>

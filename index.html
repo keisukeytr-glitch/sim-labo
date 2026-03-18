@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM比較ラボ | 格安SIM・キャリアの徹底比較</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SIM比較ラボ</h1>
+            <p style="color: var(--text-muted); font-weight: 500;">あなたに最適な回線を「タイプ別」に見つける徹底比較メディア</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Category Navigation -->
+        <nav class="cat-nav">
+            <button class="cat-btn active" data-cat="all">すべて</button>
+            <button class="cat-btn" data-cat="balance">バランス重視</button>
+            <button class="cat-btn" data-cat="cheap">安さ重視</button>
+            <button class="cat-btn" data-cat="unlimited">データ無制限</button>
+        </nav>
+
+        <section id="rankingContainer" class="ranking-section">
+            <div style="text-align: center; padding: 40px;">プランを読み込み中...</div>
+        </section>
+
+        <footer style="margin-top: 80px; text-align: center; color: var(--text-muted); padding: 40px 0;">
+            <p>&copy; 2026 SIM比較ラボ (SIM Review Lab). All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
