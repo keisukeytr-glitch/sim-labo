@@ -496,3 +496,149 @@ header h1 {
   background: var(--primary);
   color: white;
 }
+
+/* Education LP Specific Styles */
+.edu-section {
+  padding: 60px 0;
+}
+
+.edu-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.edu-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* Myth Card Styling */
+.myth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.myth-card {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease;
+}
+
+.myth-header {
+  color: var(--danger);
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.myth-question {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.fact-box {
+  background: var(--primary-light);
+  padding: 20px;
+  border-radius: 16px;
+  border-left: 5px solid var(--primary);
+}
+
+.fact-title {
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.fact-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Logical Reason Section */
+.logic-box {
+  background: #fdf2f2;
+  border-radius: 30px;
+  padding: 50px;
+  margin: 60px 0;
+  border: 2px solid #fee2e2;
+}
+
+.logic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .logic-grid { grid-template-columns: 1fr; }
+}
+
+.logic-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logic-icon {
+  font-size: 1.5rem;
+  background: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+}
+
+/* Feature Comparison Table */
+.edu-table-wrapper {
+  overflow-x: auto;
+  margin: 40px 0;
+}
+
+.edu-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.edu-table th {
+  background: var(--primary-light);
+  padding: 20px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.edu-table td {
+  padding: 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.check-green { color: #10b981; font-weight: 900; }
+.cross-red { color: #ef4444; font-weight: 900; }
