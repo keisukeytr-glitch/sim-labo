@@ -930,7 +930,10 @@ header h1 {
   /* Header & Logo */
   header {
     padding: 12px 0 !important; /* Global sticky header padding */
-    position: fixed !important;
+    position: -webkit-sticky !important; /* Safari support */
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
   }
   .header-inner {
     padding: 0 15px;
