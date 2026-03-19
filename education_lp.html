@@ -4,16 +4,319 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>そのスマホ代、一生払い続けますか？ | SIM比較ラボ</title>
+    <meta name="description" content="大手キャリアへの「お布施」を止めよう。家族4人なら10年で240万円の差。格安SIMへの誤解を解消し、あなたに合ったプランを3秒で診断。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ======= EDUCATION LP SPECIFIC STYLES ======= */
+        .edu-loss-analogy {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border: 2px solid #fca5a5;
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-top: 24px;
+            text-align: center;
+        }
+        .edu-loss-analogy p {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #b91c1c;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .edu-loss-analogy .analogy-note {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7f1d1d;
+            margin-top: 8px;
+        }
+
+        /* Target-specific benefits */
+        .target-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .target-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .target-card .target-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .target-card .target-benefit {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+        .target-card .target-emoji {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Support highlight */
+        .support-highlight {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #86efac;
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-top: 16px;
+        }
+        .support-highlight .support-title {
+            font-weight: 800;
+            color: #15803d;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .support-highlight ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .support-highlight li {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #166534;
+            margin-bottom: 4px;
+        }
+
+        /* Enhanced CTA */
+        .cta-micro-copy {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #15803d;
+            margin-top: 6px;
+            display: block;
+        }
+        .cta-btn-light {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.9rem;
+            border: 2px solid var(--primary);
+            border-radius: 100px;
+            padding: 10px 24px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cta-btn-light:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* eSIM badge */
+        .esim-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 100px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* Timing info */
+        .timing-banner {
+            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+            border: 1px solid #fde047;
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #854d0e;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Luxury list enhancements */
+        .luxury-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .luxury-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .luxury-emoji {
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .luxury-text {
+            font-size: 0.95rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* Mobile responsive table */
+        @media (max-width: 640px) {
+            .edu-table-wrapper {
+                overflow-x: hidden !important;
+            }
+            .edu-table {
+                display: none;
+            }
+            .mobile-plan-cards {
+                display: flex !important;
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+        .mobile-plan-cards {
+            display: none;
+        }
+        .mobile-plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            border: 2px solid #e5e7eb;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .mobile-plan-card .plan-name {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+        .mobile-plan-card .plan-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .mobile-plan-card .plan-quality {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 8px;
+        }
+        .mobile-plan-card .mobile-cta-wrap {
+            margin-top: 14px;
+        }
+        .mobile-plan-card .mobile-cta-btn {
+            display: block;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            font-size: 0.95rem;
+            border-radius: 100px;
+            padding: 12px 0;
+            text-decoration: none;
+        }
+        /* Author Bio & Pro Diagnosis Styles */
+        .author-bio-section {
+            background-color: #f8fafc;
+            padding: 40px 24px;
+            border-radius: 24px;
+            margin: 60px 0;
+            border: 1px solid #e2e8f0;
+        }
+        .author-card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .author-emoji { font-size: 40px; }
+        .author-name { margin: 0; font-size: 1.15rem; font-weight: 800; }
+        .author-title { font-weight: 800; font-size: 0.85rem; color: var(--primary); margin: 4px 0; }
+        .author-desc { margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+
+        .pro-diag-container {
+            background-color: #fff;
+            padding: 40px 24px;
+            border: 3px solid #3b82f6;
+            border-radius: 24px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .pro-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #3b82f6;
+            color: white;
+            padding: 6px 20px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            border-bottom-right-radius: 12px;
+        }
+        .diag-card-pro {
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .diag-card-pro:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+        }
+        .diag-letter {
+            background: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 900;
+        }
+        .diag-res-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
+        .diag-res-desc { font-size: 0.88rem; color: #64748b; line-height: 1.5; margin: 0; }
+        .diag-res-final { margin-top: 12px; font-weight: 900; color: #2563eb; }
+    </style>
 </head>
 <body>
-    <header style="background: white; border-bottom: none; padding: 40px 0 20px;">
-        <div class="container" style="text-align: center;">
-            <div class="update-badge">2026年3月最新・教育ガイド</div>
-            <h1 style="font-size: 1.8rem; color: var(--text-main);">SIM比較ラボ</h1>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo-text">SIM比較ラボ</a>
+            <div class="update-badge">2026年3月最新ガイド</div>
         </div>
     </header>
 
@@ -27,19 +330,19 @@
         </div>
 
         <!-- Hero Section -->
-        <section class="lp-hero" style="background: linear-gradient(135deg, #fffcf9 0%, #fff7ed 100%); margin-top: 0;">
-            <span class="crisis-text">⚠️ その「お布施」、10年で240万円の損。</span>
-            <h1 style="font-size: 2.4rem; line-height: 1.3; margin-bottom: 20px;" class="font-impact">
-                まだ大手キャリアに<br>
-                <span style="color: var(--primary); text-decoration: underline;">「お布施」</span>を続けますか？
+        <section class="lp-hero">
+            <span class="crisis-text">⚠️ 大手キャリアへの「お布施」を止めよう</span>
+            <h1 style="font-size: 2.8rem; line-height: 1.2; margin-bottom: 24px;" class="font-impact">
+                そのスマホ代、<br>
+                一生<span class="marker-yellow">「お布施」</span>し続けますか？
             </h1>
-            <p style="font-size: 1.1rem; color: var(--text-muted); font-weight: 600;">
+            <p style="font-size: 1.15rem; color: var(--text-muted); font-weight: 600; line-height: 1.6;">
                 「安かろう悪かろう」はもう過去の話。<br>
                 賢い人が始めている、令和のスマホ新常識。
             </p>
         </section>
 
-        <!-- Loss Visualization -->
+        <!-- ★ IMPROVEMENT 1: Enhanced Loss Visualization -->
         <section class="edu-section">
             <h2 class="edu-title">「損したくない」あなたへ。<br>10年間のシミュレーション</h2>
             <div class="loss-chart">
@@ -71,9 +374,20 @@
                     家族4人なら、10年でなんと約240万円以上の差！
                 </p>
             </div>
+            <!-- ★ NEW: 人生の大きな支出との対比 -->
+            <div class="edu-loss-analogy">
+                <p>🚗 軽自動車1台分を、ドコモ・au・SBに「寄付」していると同じです</p>
+                <p style="margin-top: 10px;">🏠 住宅ローンの頭金にもなる額。老後資金に回せば複利で何倍にも。</p>
+                <p class="analogy-note">※ 2026年現在、格安SIM平均月額約2,000〜3,000円試算</p>
+            </div>
+            <!-- ★ NEW: 乗り換えタイミングの嘘 -->
+            <div class="timing-banner">
+                ⏰ 「2年縛りが終わってから…」は損するだけ。<br>
+                <strong>違約金・縛りは2024年より事実上廃止。今すぐ変えるのが一番お得です。</strong>
+            </div>
         </section>
 
-        <!-- Specific Benefits: What can you do with 5,000 yen? -->
+        <!-- ★ IMPROVEMENT 3: Target-specific benefits -->
         <section class="edu-section" style="background: #fff7ed; border-radius: 30px; padding: 40px;">
             <h2 class="edu-title">浮いた月5,000円で、<br>生活はどう変わる？</h2>
             <div class="luxury-list">
@@ -94,9 +408,27 @@
                     <span class="luxury-text">年間6万円で<br>最新家電も買える</span>
                 </div>
             </div>
+            <!-- ★ NEW: ターゲット別の具体例 -->
+            <div class="target-benefits">
+                <div class="target-card">
+                    <span class="target-emoji">👨‍👩‍👧‍👦</span>
+                    <div class="target-label">パパ・ママ向け</div>
+                    <div class="target-benefit">お子さんの習い事1つ分が、スマホ代だけでまるごと無料に</div>
+                </div>
+                <div class="target-card">
+                    <span class="target-emoji">📱</span>
+                    <div class="target-label">ガジェット好き向け</div>
+                    <div class="target-benefit">節約分を積み上げると、最新iPhoneの分割代が実質タダ</div>
+                </div>
+                <div class="target-card">
+                    <span class="target-emoji">📈</span>
+                    <div class="target-label">資産形成派向け</div>
+                    <div class="target-benefit">新NISAで毎月5,000円を20年積み立てると、約200万円以上に化ける</div>
+                </div>
+            </div>
         </section>
 
-        <!-- Myth Busting Section -->
+        <!-- ★ IMPROVEMENT 2: Myth Busting + サポート安心感 -->
         <section class="edu-section">
             <h2 class="edu-title">格安SIM 3つの誤解を完全解消</h2>
             <div class="myth-grid">
@@ -115,7 +447,8 @@
                     <h3 class="myth-question">「お店に行って数時間待つのは無理」</h3>
                     <div class="fact-box">
                         <span class="fact-title">✅ 真実：自宅で10分、カップ麺を待つ間。</span>
-                        <p class="fact-text">MNPワンストップ対応により、今の番号そのままで移動OK。今の会社への電話すら不要です。</p>
+                        <p class="fact-text">MNPワンストップ対応により、今の番号そのままで移動OK。今の会社への電話すら不要。今のiPhoneがそのまま使えます（データ移行不要）。<br><br>
+                        <strong>eSIM対応プランなら<span class="esim-badge">eSIM</span>、SIMカードの差し替えすら不要。QRコードを読むだけで数分後に開通します。</strong></p>
                     </div>
                 </div>
                 <!-- Myth 3 -->
@@ -127,6 +460,15 @@
                         <p class="fact-text">「メール持ち運び」が登場。docomo、au、ソフトバンクのメアドを変えずに格安SIMへ移行可能です。</p>
                     </div>
                 </div>
+            </div>
+            <!-- ★ NEW: サポート体制の安心感 -->
+            <div class="support-highlight">
+                <div class="support-title">🛡️ 「困ったとき誰に聞く？」の不安も解消</div>
+                <ul>
+                    <li>UQモバイル → <strong>全国のauショップで対面相談OK</strong>。店舗スタッフが丁寧にサポート</li>
+                    <li>ahamo → <strong>チャットサポートが迅速対応</strong>。自宅から24時間いつでも相談可能</li>
+                    <li>楽天モバイル → <strong>全国1,000店舗以上のショップ</strong>で直接相談が可能</li>
+                </ul>
             </div>
         </section>
 
@@ -173,9 +515,47 @@
             </div>
         </section>
 
-        <!-- Comparison Table with Urgency -->
+        <!-- ★ NEW: Author Bio Section -->
+        <section class="author-bio-section">
+            <h2 style="text-align: center; color: #1e293b; font-size: 1.6rem; margin-bottom: 30px; font-weight: 900;">
+                <span style="border-bottom: 3px solid #3b82f6;">私たちがこのガイドを作った理由</span>
+            </h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="author-card">
+                    <div class="author-emoji">👩‍💼</div>
+                    <div>
+                        <h3 class="author-name">現場のリアルを知るプロ（監修）</h3>
+                        <p class="author-title">大手量販店 モバイル担当歴：約5年</p>
+                        <p class="author-desc">
+                            数千人の契約に立ち会ってきた現場のプロ。「お店では言えないプランの裏側」や、本当にストレスなく繋がる回線を熟知。
+                        </p>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 24px; color: #94a3b8; margin: 10px 0;">×</div>
+                <div class="author-card">
+                    <div class="author-emoji">👨‍💻</div>
+                    <div>
+                        <h3 class="author-name">論理的コスト分析の鬼（執筆）</h3>
+                        <p class="author-title" style="color: #0f172a;">家計コスト分析プロフェッショナル（ESTJ-A）</p>
+                        <p class="author-desc">
+                            「なんとなく安い」は一切信じない。10年スパンでの損得シミュレーションと、膨大なスペック比較をロジカルに整理。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 30px; background: #eff6ff; padding: 24px; border-radius: 16px; border-left: 6px solid #3b82f6;">
+                <p style="margin: 0; font-size: 1rem; line-height: 1.7; color: #1e3a8a; font-weight: 600;">
+                    <strong>「大切な人に教えるなら、どのプラン？」</strong><br>
+                    現場の一次情報と、徹底したデータ分析。この2つを掛け合わせ、私たちが自信を持って「これなら間違いない」と言える選択肢だけを厳選しました。
+                </p>
+            </div>
+        </section>
+
+        <!-- ★ IMPROVEMENT 5: Mobile-optimized comparison (card layout for SP) -->
         <section class="edu-section">
             <h2 class="edu-title">今、選ぶべき「失敗しない」3選</h2>
+
+            <!-- Desktop Table -->
             <div class="edu-table-wrapper">
                 <table class="edu-table">
                     <thead>
@@ -193,49 +573,111 @@
                             <td>高品質・安定重視</td>
                             <td><span class="check-green">◎ 最速級</span></td>
                             <td><span class="urgency-badge">dポイント最大還元中！</span></td>
-                            <td><a href="https://px.a8.net/svt/ejp?a8mat=4AZIOE+OEX7M+4TIO+626XU" style="color: var(--primary); font-weight: bold;">詳細を見る</a></td>
+                            <td>
+                                <a href="https://px.a8.net/svt/ejp?a8mat=4AZIOE+OEX7M+4TIO+626XU" style="color: var(--primary); font-weight: bold;">今の支払いと比べる</a>
+                                <span class="cta-micro-copy">✅ 事務手数料無料・最短5分</span>
+                            </td>
                         </tr>
                         <tr>
                             <td><strong>楽天モバイル</strong></td>
                             <td>無制限・動画派</td>
                             <td><span class="check-green">○ 改善中</span></td>
                             <td><span class="urgency-badge">最強プラン爆走中！</span></td>
-                            <td><a href="https://network.mobile.rakuten.co.jp/" style="color: var(--primary); font-weight: bold;">詳細を見る</a></td>
+                            <td>
+                                <a href="https://network.mobile.rakuten.co.jp/" style="color: var(--primary); font-weight: bold;">診断だけしてみる</a>
+                                <span class="cta-micro-copy">✅ 違約金なし・いつでも解約OK</span>
+                            </td>
                         </tr>
                         <tr>
                             <td><strong>UQモバイル</strong></td>
                             <td>店舗・安定重視</td>
                             <td><span class="check-green">◎ 安定</span></td>
-                            <td><span class="urgency-badge">月末までの乗換特典あり</span></td>
-                            <td><a href="https://www.uqwimax.jp/mobile/plan/cwcp/" style="color: var(--primary); font-weight: bold;">詳細を見る</a></td>
+                            <td><span class="urgency-badge">月末まで乗換特典あり</span></td>
+                            <td>
+                                <a href="https://www.uqwimax.jp/mobile/plan/cwcp/" style="color: var(--primary); font-weight: bold;">auショップで相談する</a>
+                                <span class="cta-micro-copy">✅ 全国auショップ対応</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
 
-        <!-- Quick Diagnosis CTA -->
-        <section class="diag-card" style="border: 4px solid var(--primary);">
-            <h2 style="text-align: center; margin-bottom: 20px;" class="font-impact">🔍 あなたの結論は？3秒診断</h2>
-            <p style="text-align: center; font-weight: 800; color: var(--text-muted); margin-bottom: 30px;">
-                今の使い方にぴったりの1枚を選んでください。
-            </p>
-            <div class="diag-grid">
-                <div class="diag-item" onclick="location.href='https://px.a8.net/svt/ejp?a8mat=4AZIOE+OEX7M+4TIO+626XU'">
-                    <span style="font-size: 0.8rem; opacity: 0.7;">ドコモ回線がいい</span><br>
-                    <strong>ahamo</strong> で<br>20GB以上使いたい
+            <!-- ★ Mobile Card Layout (shown only on SP) -->
+            <div class="mobile-plan-cards">
+                <div class="mobile-plan-card">
+                    <div class="plan-name">ahamo</div>
+                    <div class="plan-desc">高品質・安定重視 | ドコモ回線</div>
+                    <div class="plan-quality">◎ 最速級</div>
+                    <span class="urgency-badge">dポイント最大還元中！</span>
+                    <div class="mobile-cta-wrap">
+                        <a href="https://px.a8.net/svt/ejp?a8mat=4AZIOE+OEX7M+4TIO+626XU" class="mobile-cta-btn">今の支払いと比べてみる →</a>
+                        <span class="cta-micro-copy" style="text-align:center;">✅ 事務手数料無料・最短5分で申し込み完了</span>
+                    </div>
                 </div>
-                <div class="diag-item" onclick="location.href='https://network.mobile.rakuten.co.jp/'">
-                    <span style="font-size: 0.8rem; opacity: 0.7;">とにかくギガ使い放題</span><br>
-                    <strong>楽天モバイル</strong> で<br>動画を楽しみ尽くしたい
+                <div class="mobile-plan-card">
+                    <div class="plan-name">楽天モバイル</div>
+                    <div class="plan-desc">無制限・動画派に最適</div>
+                    <div class="plan-quality">○ 改善中</div>
+                    <span class="urgency-badge">最強プラン爆走中！</span>
+                    <div class="mobile-cta-wrap">
+                        <a href="https://network.mobile.rakuten.co.jp/" class="mobile-cta-btn">診断だけしてみる →</a>
+                        <span class="cta-micro-copy" style="text-align:center;">✅ 違約金なし・いつでも解約OK</span>
+                    </div>
                 </div>
-                <div class="diag-item" onclick="location.href='https://www.uqwimax.jp/mobile/plan/cwcp/'">
-                    <span style="font-size: 0.8rem; opacity: 0.7;">店舗で相談したい</span><br>
-                    <strong>UQモバイル</strong> で<br>安心して安くしたい
+                <div class="mobile-plan-card">
+                    <div class="plan-name">UQモバイル</div>
+                    <div class="plan-desc">店舗サポート・安定重視</div>
+                    <div class="plan-quality">◎ 安定</div>
+                    <span class="urgency-badge">月末まで乗換特典あり</span>
+                    <div class="mobile-cta-wrap">
+                        <a href="https://www.uqwimax.jp/mobile/plan/cwcp/" class="mobile-cta-btn">auショップで相談する →</a>
+                        <span class="cta-micro-copy" style="text-align:center;">✅ 全国auショップで対面サポート</span>
+                    </div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 30px; font-weight: 900; color: var(--danger);">
-                ⚠️ キャンペーンは予告なく終了する場合があります。<br>今月のうちに「脱・お布施」してしまいましょう！
+        </section>
+
+        <!-- ★ UPGRADED: Pro Logic 3-Second Diagnosis -->
+        <section class="pro-diag-container">
+            <div class="pro-badge">量販店プロ 監修ロジック</div>
+            <h2 style="text-align: center; color: #1e293b; font-size: 1.6rem; margin-top: 20px; margin-bottom: 30px;" class="font-impact">
+                🔍 あなたに最適な1枚は？<br><span style="color: #3b82f6; font-size: 2.2rem;">3秒診断</span>
+            </h2>
+
+            <div class="diag-cards">
+                <!-- Option A -->
+                <div class="diag-card-pro" style="background: #f0f9ff;" onclick="location.href='https://px.a8.net/svt/ejp?a8mat=4AZIOE+OEX7M+4TIO+626XU'">
+                    <span class="diag-letter">A</span>
+                    <div>
+                        <h3 class="diag-res-title" style="color: #1e3a8a;">「とにかくストレスなく使いたい」派</h3>
+                        <p class="diag-res-desc">お昼の速度低下は論外。動画もゲームもサクサク楽しみたいなら…</p>
+                        <div class="diag-res-final">👉 結論：ahamo</div>
+                    </div>
+                </div>
+
+                <!-- Option B -->
+                <div class="diag-card-pro" style="background: #fdf2f8;" onclick="location.href='https://network.mobile.rakuten.co.jp/'">
+                    <span class="diag-letter" style="background: #db2777;">B</span>
+                    <div>
+                        <h3 class="diag-res-title" style="color: #831843;">「ギガを気にせず動画を見たい」派</h3>
+                        <p class="diag-res-desc">外でYouTubeやSNSを使いまくる。無制限で安く抑えたいなら…</p>
+                        <div class="diag-res-final" style="color: #db2777;">👉 結論：楽天モバイル</div>
+                    </div>
+                </div>
+
+                <!-- Option C -->
+                <div class="diag-card-pro" style="background: #f0fdf4;" onclick="location.href='https://www.uqwimax.jp/mobile/plan/cwcp/'">
+                    <span class="diag-letter" style="background: #16a34a;">C</span>
+                    <div>
+                        <h3 class="diag-res-title" style="color: #064e3b;">「何かあったらお店に行きたい」派</h3>
+                        <p class="diag-res-desc">ネットだけの手続きは不安。近くに店舗があって相談したいなら…</p>
+                        <div class="diag-res-final" style="color: #16a34a;">👉 結論：UQモバイル</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 24px; font-weight: 700;">
+                ※量販店での接客データに基づいた推奨です
             </p>
         </section>
 

@@ -9,134 +9,588 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .lp-header { background: white; padding: 20px; text-align: center; border-radius: 20px; margin-bottom: 20px; }
-        .benefit-badge { background: var(--accent); padding: 5px 15px; border-radius: 10px; font-weight: 900; margin-bottom: 10px; display: inline-block; }
+        /* ======= FAMILY LP SPECIFIC STYLES ======= */
+        .edu-loss-analogy {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border: 2px solid #fca5a5;
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+            text-align: center;
+        }
+        .edu-loss-analogy p {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #b91c1c;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .edu-loss-analogy .analogy-note {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7f1d1d;
+            margin-top: 10px;
+        }
+
+        /* Target-specific benefits */
+        .target-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .target-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            border-left: 6px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .target-card:hover {
+            transform: translateY(-5px);
+        }
+        .target-card .target-label {
+            font-size: 0.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .target-card .target-benefit {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        .target-card .target-emoji {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Support highlight */
+        .support-highlight {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #86efac;
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+        .support-highlight .support-title {
+            font-weight: 900;
+            color: #15803d;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .support-highlight ul {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        .support-highlight li {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+        .support-highlight li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: 900;
+        }
+
+        /* Luxury list enhancements */
+        .luxury-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .luxury-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 18px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .luxury-emoji {
+            font-size: 1.6rem;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .luxury-text {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* Mobile responsive table */
+        @media (max-width: 640px) {
+            .edu-table-wrapper {
+                overflow-x: hidden !important;
+            }
+            .edu-table {
+                display: none;
+            }
+            .mobile-plan-cards {
+                display: flex !important;
+                flex-direction: column;
+                gap: 16px;
+                margin-top: 20px;
+            }
+            .lp-hero h1 {
+                font-size: 1.8rem !important;
+            }
+        }
+
+        /* Author Bio & Pro Diagnosis Styles */
+        .author-bio-section {
+            background-color: #f8fafc;
+            padding: 40px 24px;
+            border-radius: 24px;
+            margin: 60px 0;
+            border: 1px solid #e2e8f0;
+        }
+        .author-card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .author-emoji { font-size: 40px; }
+        .author-name { margin: 0; font-size: 1.15rem; font-weight: 800; }
+        .author-title { font-weight: 800; font-size: 0.85rem; color: var(--primary); margin: 4px 0; }
+        .author-desc { margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+
+        .pro-diag-container {
+            background-color: #fff;
+            padding: 40px 24px;
+            border: 3px solid #3b82f6;
+            border-radius: 24px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .pro-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #3b82f6;
+            color: white;
+            padding: 6px 20px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            border-bottom-right-radius: 12px;
+        }
+        .diag-card-pro {
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .diag-card-pro:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+        }
+        .diag-letter {
+            background: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 900;
+        }
+        .diag-res-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
+        .diag-res-desc { font-size: 0.88rem; color: #64748b; line-height: 1.5; margin: 0; }
+        .diag-res-final { margin-top: 12px; font-weight: 900; color: #2563eb; }
+    </style>
+    <style>
+        .mobile-plan-cards {
+            display: none;
+        }
+        .mobile-plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            border: 2px solid #e5e7eb;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .mobile-plan-card .plan-name {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+        .mobile-plan-card .plan-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .mobile-plan-card .plan-quality {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 10px;
+        }
+        .mobile-plan-card .mobile-cta-wrap {
+            margin-top: 20px;
+        }
+        .mobile-plan-card .mobile-cta-btn {
+            display: block;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            font-weight: 900;
+            font-size: 1.1rem;
+            border-radius: 100px;
+            padding: 14px 0;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+        }
+
+        .timing-banner {
+            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+            border: 1px solid #fde047;
+            border-radius: 16px;
+            padding: 16px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #854d0e;
+            text-align: center;
+            margin-top: 24px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>SIM比較ラボ</h1>
-            <p style="color: var(--text-muted); font-weight: 500;">あなたに最適な回線を「タイプ別」に見つける徹底比較メディア</p>
+        <div class="header-inner">
+            <a href="index.html" class="logo-text">SIM比較ラボ</a>
+            <div class="update-badge">2026年3月最新・家族ガイド</div>
         </div>
     </header>
 
     <div class="container">
-        <section class="lp-hero" style="background: white; padding: 40px; margin-bottom: 30px;">
-            <span class="crisis-text">⚠️ 2026年3月、家計の常識が変わります</span>
-            <h1 style="font-size: 2.2rem; color: #1e293b; letter-spacing: -1px;">
-                家族3人で月2万円は<br>
-                <span style="color: var(--danger); text-decoration: underline;">完全な「払いすぎ」</span>です。
+        <!-- Hero Section -->
+        <section class="lp-hero">
+            <span class="crisis-text">⚠️ 家族3人で月2万円は、完全な「払いすぎ」です</span>
+            <h1 style="font-size: 2.8rem; line-height: 1.2; margin-bottom: 24px;" class="font-impact">
+                年間<span class="marker-yellow">14.4万円</span>の損失。<br>
+                そのお金で「家族旅行」に行けました。
             </h1>
-            <p style="margin-top: 20px; font-weight: bold; color: var(--text-muted);">
-                年間で144,000円。そのお金、<br>
-                本当なら今頃「家族旅行」に使えていました。
+            <p style="font-size: 1.2rem; color: var(--text-muted); font-weight: 600; line-height: 1.8;">
+                「家族割があるから大手がいい」という思い込みが、<br>
+                あなたの家計から毎年、軽自動車の維持費ほどを奪っています。
             </p>
         </section>
 
-        <!-- セクション2: 4社タイプ別診断 -->
-        <section class="diag-card">
-            <h2 style="text-align: center;">🔍 あなたの「正解」はどこ？<br>タイプ別診断チャート</h2>
-            <p style="text-align: center; color: var(--text-muted);">あてはまるものをクリックしてください</p>
-            
-            <div class="diag-grid">
-                <div class="diag-item" onclick="showResult('unlimited')">「ギガ無制限」がいい！<br>外でも動画を見まくりたい</div>
-                <div class="diag-item" onclick="showResult('balance')">「店舗サポート」も欲しい<br>でも安くしたい</div>
-                <div class="diag-item" onclick="showResult('paypay')">「PayPay」をよく使う！<br>家族でまとめて得したい</div>
-                <div class="diag-item" onclick="showResult('simple')">「海外出張・旅行」が多い<br>設定不要で使いたい</div>
+        <!-- Loss Visualization -->
+        <section class="edu-section">
+            <h2 class="edu-title">「家族全員」だからこそ恐ろしい、<br>10年間の家計ダメージ</h2>
+            <div class="loss-chart">
+                <p style="font-weight: 800; font-size: 1rem; margin-bottom: 25px; text-align: center;">
+                    大手家族(4人で3万円) vs 格安SIM家族(4人で8千円) の差額
+                </p>
+                <div class="chart-row">
+                    <div class="chart-label">1年間</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar" style="width: 30%;"></div>
+                        <span class="chart-value">約26万円</span>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-label">5年間</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar" style="width: 70%;"></div>
+                        <span class="chart-value">約130万円</span>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-label">10年間</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar" style="width: 100%; background: var(--danger);"></div>
+                        <span class="chart-value" style="color: var(--danger); font-weight: 900;">264万円！</span>
+                    </div>
+                </div>
+                <p style="text-align: center; color: var(--danger); font-weight: 900; margin-top: 24px; font-size: 1.2rem;" class="font-impact">
+                    子供が成人する頃には、大学の学費すら払える差に。
+                </p>
             </div>
 
-            <div id="diagResult" style="margin-top: 30px; display: none; padding: 25px; background: #fff; border: 2px solid var(--accent); border-radius: 20px; text-align: center;">
-                <h3 id="resultTitle">---</h3>
-                <p id="resultText" style="margin: 15px 0;">---</p>
-                <a id="resultLink" href="#" class="cat-btn active" style="text-decoration: none; display: inline-block;">詳しく見る</a>
+            <div class="edu-loss-analogy">
+                <p>🚐 10年でミニバン1台分を、携帯会社に「寄付」していませんか？</p>
+                <div class="analogy-note">※ 家族4人、大手キャリアの使い放題プラン利用時との試算</div>
+            </div>
+
+            <div class="timing-banner">
+                ⏰ 「更新月を待ってから…」はその間に数万円損します。<br>
+                <strong>2026年現在、違約金は完全撤廃。今すぐ乗り換えるのが最も賢い選択です。</strong>
             </div>
         </section>
 
-        <!-- セクション3: 各社のメリット・デメリット -->
-        <h2 style="text-align: center; margin: 60px 0 30px;">2026年3月最新・4大キャリア徹底比較</h2>
-        <div id="mainRanking" class="ranking-section">
-            <!-- JSで動的に構築：家族向け訴求フレーズを優先表示 -->
-        </div>
+        <!-- Benefits Section -->
+        <section class="edu-section" style="background: #fff7ed; border-radius: 40px; padding: 40px 20px;">
+            <h2 class="edu-title">浮いた「月2万円」が、<br>家族の笑顔を増やします</h2>
+            <div class="luxury-list">
+                <div class="luxury-item">
+                    <span class="luxury-emoji">👨‍👩‍👧‍👦</span>
+                    <span class="luxury-text">年1回の<br>豪華な家族旅行</span>
+                </div>
+                <div class="luxury-item">
+                    <span class="luxury-emoji">🏫</span>
+                    <span class="luxury-text">子供の習い事を<br>もう一つ追加</span>
+                </div>
+                <div class="luxury-item">
+                    <span class="luxury-emoji">🍣</span>
+                    <span class="luxury-text">毎月1回の<br>回らないお寿司</span>
+                </div>
+                <div class="luxury-item">
+                    <span class="luxury-emoji">💰</span>
+                    <span class="luxury-text">新NISAで<br>将来の学費積立</span>
+                </div>
+            </div>
 
-        <!-- セクション4: 最もおトクな乗り換えキャンペーン -->
-        <section class="diag-card" style="border-color: var(--accent); background: #fffcf0;">
-            <h3>🎁 2026年3月：注目のキャンペーン</h3>
-            <ul style="margin-top: 20px; list-style: none;">
-                <li style="margin-bottom: 15px;">🚀 <strong>楽天モバイル</strong>: 初めての乗り換えで最大14,000pt還元中！</li>
-                <li style="margin-bottom: 15px;">🧡 <strong>UQモバイル</strong>: au PAY残高最大10,000円分キャッシュバック</li>
-                <li style="margin-bottom: 15px;">🥤 <strong>ワイモバイル</strong>: 2回線目以降「月額1,078円〜」の家族革命</li>
-            </ul>
+            <div class="target-benefits">
+                <div class="target-card">
+                    <span class="target-emoji">👩‍🍳</span>
+                    <div class="target-label">家計を守るママへ</div>
+                    <div class="target-benefit">スーパーの特売で数十円節約するより、スマホ代の見直しで月数万円浮かす方が圧倒的に楽です。</div>
+                </div>
+                <div class="target-card">
+                    <span class="target-emoji">👨‍💻</span>
+                    <div class="target-label">仕事に励むパパへ</div>
+                    <div class="target-benefit">「速度が遅くなる」は昔の話。今の品質なら、WEB会議も動画視聴もサクサク。家族満足度も120%に。</div>
+                </div>
+            </div>
         </section>
 
-        <!-- セクション5: クロージング -->
-        <div class="lp-hero" style="background: linear-gradient(to bottom, #fff7ed, #fff);">
-            <h2 style="margin-bottom: 20px;">まずは10,000円、<br>今月の支払いを減らしましょう。</h2>
-            <p style="margin-bottom: 40px; font-weight: bold;">手続きはオンラインで完結。<br>今の番号そのままで「家計革命」を。</p>
-            <a href="index.html" class="btn-official" style="border-radius: 50px;">【無料】もっと詳しく比較する</a>
-        </div>
+        <!-- Myth Busting -->
+        <section class="edu-section">
+            <h2 class="edu-title">家族で乗り換える前の「3つの不安」</h2>
+            <div class="myth-grid">
+                <div class="myth-card">
+                    <div class="myth-header">❌ 速度が遅くなるのでは？</div>
+                    <h3 class="myth-question">「子供が動画を見れなくなると困る」</h3>
+                    <div class="fact-box">
+                        <span class="fact-title">✅ 真実：大手と同じ「自社回線」プランがあります</span>
+                        <p class="fact-text">UQやワイモバイル、ahamoなら大手キャリアと全く同じ優先度。昼休みの動画も快適です。</p>
+                    </div>
+                </div>
+                <div class="myth-card">
+                    <div class="myth-header">❌ ショップに行けない！</div>
+                    <h3 class="myth-question">「忙しくてお店に行く時間がない」</h3>
+                    <div class="fact-box">
+                        <span class="fact-title">✅ 真実：自宅で夜、寝る前の10分で完了。</span>
+                        <p class="fact-text">MNPワンストップなら元の会社への連絡も不要。eSIMなら翌朝には使えるようになります。</p>
+                    </div>
+                </div>
+                <div class="myth-card">
+                    <div class="myth-header">❌ 万が一のトラブルは？</div>
+                    <h3 class="myth-question">「自分たちだけで設定できるか不安」</h3>
+                    <div class="fact-box">
+                        <span class="fact-title">✅ 真実：全国の店舗で相談できるプランも。</span>
+                        <p class="fact-text">UQはauショップ、Webで不安なら店舗で契約・サポートもOK。専門スタッフが親身に対応します。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="support-highlight">
+                <div class="support-title">🛡️ 家族あんしんサポート</div>
+                <ul>
+                    <li>ワイモバイル → <strong>全国のソフトバンクショップ</strong>でフルサポート</li>
+                    <li>UQモバイル → <strong>全国のauショップ</strong>で対面相談・設定サポート</li>
+                    <li>楽天モバイル → <strong>最強プラン</strong>ならテザリングも無制限。自宅のWi-Fi代わりにも。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="edu-section">
+            <h2 class="edu-title">家族に選ばれている「鉄板」の3社</h2>
+
+            <div class="edu-table-wrapper">
+                <table class="edu-table">
+                    <thead>
+                        <tr>
+                            <th>プラン</th>
+                            <th>家族向けメリット</th>
+                            <th>品質</th>
+                            <th>キャンペーン</th>
+                            <th>詳細</th>
+                        </tr>
+                    </thead>
+                    <tbody id="familyTableBody">
+                        <!-- JSで動的に構築される（あるいはフォールバック用） -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Card Layout -->
+            <div class="mobile-plan-cards" id="familyMobileCards">
+                <!-- JSで動的に構築 -->
+            </div>
+        </section>
+
+        <!-- ★ NEW: Author Bio Section -->
+        <section class="author-bio-section">
+            <h2 style="text-align: center; color: #1e293b; font-size: 1.6rem; margin-bottom: 30px; font-weight: 900;">
+                <span style="border-bottom: 3px solid #3b82f6;">私たちがこのガイドを作った理由</span>
+            </h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="author-card">
+                    <div class="author-emoji">👩‍💼</div>
+                    <div>
+                        <h3 class="author-name">現場のリアルを知るプロ（監修）</h3>
+                        <p class="author-title">大手量販店 モバイル担当歴：約5年</p>
+                        <p class="author-desc">
+                            数千人の契約に立ち会ってきた現場のプロ。「お店では言えないプランの裏側」や、本当にストレスなく繋がる回線を熟知。
+                        </p>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 24px; color: #94a3b8; margin: 10px 0;">×</div>
+                <div class="author-card">
+                    <div class="author-emoji">👨‍💻</div>
+                    <div>
+                        <h3 class="author-name">論理的コスト分析の鬼（執筆）</h3>
+                        <p class="author-title" style="color: #0f172a;">家計コスト分析プロフェッショナル（ESTJ-A）</p>
+                        <p class="author-desc">
+                            「なんとなく安い」は一切信じない。10年スパンでの損得シミュレーションと、膨大なスペック比較をロジカルに整理。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 30px; background: #eff6ff; padding: 24px; border-radius: 16px; border-left: 6px solid #3b82f6;">
+                <p style="margin: 0; font-size: 1rem; line-height: 1.7; color: #1e3a8a; font-weight: 600;">
+                    <strong>「大切な人に教えるなら、どのプラン？」</strong><br>
+                    現場の一次情報と、徹底したデータ分析。この2つを掛け合わせ、私たちが自信を持って「これなら間違いない」と言える選択肢だけを厳選しました。
+                </p>
+            </div>
+        </section>
+
+        <!-- ★ UPGRADED: Pro Logic 3-Second Diagnosis -->
+        <section class="pro-diag-container">
+            <div class="pro-badge">量販店プロ 監修ロジック</div>
+            <h2 style="text-align: center; color: #1e293b; font-size: 1.6rem; margin-top: 20px; margin-bottom: 30px;" class="font-impact">
+                🔍 あなたに最適な1枚は？<br><span style="color: #3b82f6; font-size: 2.2rem;">3秒診断</span>
+            </h2>
+
+            <div class="diag-cards">
+                <!-- Option A -->
+                <div class="diag-card-pro" style="background: #f0f9ff;" onclick="location.href='https://www.ymobile.jp/'">
+                    <span class="diag-letter">A</span>
+                    <div>
+                        <h3 class="diag-res-title" style="color: #1e3a8a;">「とにかくストレスなく使いたい」派</h3>
+                        <p class="diag-res-desc">キャリア品質で家族割も強力。PayPayをお得に使いたいなら…</p>
+                        <div class="diag-res-final">👉 結論：ワイモバイル</div>
+                    </div>
+                </div>
+
+                <!-- Option B -->
+                <div class="diag-card-pro" style="background: #fdf2f8;" onclick="location.href='https://network.mobile.rakuten.co.jp/'">
+                    <span class="diag-letter" style="background: #db2777;">B</span>
+                    <div>
+                        <h3 class="diag-res-title" style="color: #831843;">「ギガを気にせず動画を見たい」派</h3>
+                        <p class="diag-res-desc">外でYouTubeやSNSを使いまくる。家計を極限まで抑えたいなら…</p>
+                        <div class="diag-res-final" style="color: #db2777;">👉 結論：楽天モバイル</div>
+                    </div>
+                </div>
+
+                <!-- Option C -->
+                <div class="diag-card-pro" style="background: #f0fdf4;" onclick="location.href='https://www.uqwimax.jp/mobile/plan/cwcp/'">
+                    <span class="diag-letter" style="background: #16a34a;">C</span>
+                    <div>
+                        <h3 class="diag-res-title" style="color: #064e3b;">「何かあったらお店に行きたい」派</h3>
+                        <p class="diag-res-desc">ネットだけの手続きは不安。近くに店舗があって相談したいなら…</p>
+                        <div class="diag-res-final" style="color: #16a34a;">👉 結論：UQモバイル</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 24px; font-weight: 700;">
+                ※量販店での接客データに基づいた推奨です
+            </p>
+        </section>
+
+        <footer style="margin-top: 80px; text-align: center; color: var(--text-muted); padding: 40px 0; border-top: 1px solid var(--border-color);">
+            <p>&copy; 2026 SIM比較ラボ 家族家計応援チーム. All rights reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;"><a href="index.html" style="color: var(--text-muted);">総合ポータルに戻る</a></p>
+        </footer>
     </div>
 
     <script>
-        function showResult(type) {
-            const res = document.getElementById('diagResult');
-            const title = document.getElementById('resultTitle');
-            const text = document.getElementById('resultText');
-            
-            res.style.display = 'block';
-            
-            if (type === 'unlimited') {
-                title.innerText = '🏆 あなたは「楽天モバイル」派！';
-                text.innerText = 'Wi-Fi代わりに使える無制限プランが最強。プラチナバンド対応で電波の不安も解消されました。';
-            } else if (type === 'balance') {
-                title.innerText = '🏆 あなたは「UQモバイル」派！';
-                text.innerText = 'auショップでの店頭サポートが受けられる安心感。余ったギガを翌月に繰り越せるのがおトクなポイント。';
-            } else if (type === 'paypay') {
-                title.innerText = '🏆 あなたは「ワイモバイル」派！';
-                text.innerText = 'PayPay経済圏なら還元率が異常に高く、2回線目以降の安さは業界トップクラス。主婦層に圧倒的人気です。';
-            } else if (type === 'simple') {
-                title.innerText = '🏆 あなたは「ahamo」派！';
-                text.innerText = '追加料金なしで海外利用OK！30GBの大容量とドコモ品質の通信を、ワンプライスで提供します。';
-            }
-            res.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // 本体のデータと連動して比較セクションを表示
         async function loadComparison() {
-            const container = document.getElementById('mainRanking');
+            const tableBody = document.getElementById('familyTableBody');
+            const mobileCards = document.getElementById('familyMobileCards');
             const response = await fetch('plans.json');
             const plans = await response.json();
             
-            plans.filter(p => p.id !== 'povo-2.0' && p.id !== 'linemo-mini').forEach((plan, i) => {
-                const card = document.createElement('div');
-                card.className = 'review-card';
-                card.innerHTML = `
-                    <div class="card-header">
-                        <div class="rank-badge">${i+1}位</div>
-                        <div>
-                            <span class="benefit-badge">2026年3月最新</span>
-                            <h2 style="font-size: 1.5rem;">${plan.name}</h2>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="spec-col">
-                            <div class="price-box">
-                                <span class="price-main">¥${plan.price.toLocaleString()}</span>
-                                <span style="font-size: 0.9rem;">(税込)〜</span>
-                            </div>
-                            <div class="target-box">${plan.killerPhrase || plan.target}</div>
-                        </div>
-                        <div class="analysis-col">
-                            <h4>現場の生の声風レビュー</h4>
-                            <ul class="list-pros">${plan.pros.map(p=>`<li>${p}</li>`).join('')}</ul>
-                        </div>
-                    </div>
-                    <a href="${plan.url}" class="btn-official">${plan.carrier} 公式詳細を見る</a>
+            // 家族向けに特に適したプランをピックアップ
+            const familyPlans = plans.filter(p => ['uq-mobile', 'ymobile', 'rakuten-saikyo'].includes(p.id));
+            
+            familyPlans.forEach((plan) => {
+                // Table Row
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${plan.name}</strong></td>
+                    <td>${plan.killerPhrase}</td>
+                    <td><span class="check-green">◎ 高品質</span></td>
+                    <td><span class="urgency-badge">特典あり</span></td>
+                    <td>
+                        <a href="${plan.url}" style="color: var(--primary); font-weight: bold;">公式サイトを確認</a>
+                    </td>
                 `;
-                container.appendChild(card);
+                tableBody.appendChild(row);
+
+                // Mobile Card
+                const card = document.createElement('div');
+                card.className = 'mobile-plan-card';
+                card.innerHTML = `
+                    <div class="plan-name">${plan.name}</div>
+                    <div class="plan-desc">${plan.carrier}</div>
+                    <div class="plan-quality">◎ 家族におすすめ</div>
+                    <p style="font-size: 0.9rem; font-weight: bold; margin: 10px 0;">${plan.killerPhrase}</p>
+                    <div class="mobile-cta-wrap">
+                        <a href="${plan.url}" class="mobile-cta-btn">家計の見積もりを出す →</a>
+                    </div>
+                `;
+                mobileCards.appendChild(card);
             });
         }
         loadComparison();
     </script>
+</body>
+</html>
 </body>
 </html>
