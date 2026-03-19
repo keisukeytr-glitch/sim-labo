@@ -10,18 +10,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header style="background: white; border-bottom: none; padding: 40px 0;">
+    <header style="background: white; border-bottom: none; padding: 40px 0 20px;">
         <div class="container" style="text-align: center;">
             <div class="update-badge">2026年3月最新・教育ガイド</div>
-            <h1 style="font-size: 2rem; color: var(--text-main);">SIM比較ラボ</h1>
+            <h1 style="font-size: 1.8rem; color: var(--text-main);">SIM比較ラボ</h1>
         </div>
     </header>
 
     <div class="container">
+        <!-- Inner Voice / Emotional Hook -->
+        <div class="inner-voice-container" style="text-align: center;">
+            <div class="inner-voice">
+                「あぁ、また今月も1万円近い引き落としが…」<br>
+                「格安SIMがいいって聞くけど、結局どれがいいのか分からない」
+            </div>
+        </div>
+
         <!-- Hero Section -->
-        <section class="lp-hero" style="background: linear-gradient(135deg, #fffcf9 0%, #fff7ed 100%);">
-            <span class="crisis-text">💰 年間6万円の「隠れた損失」</span>
-            <h1 style="font-size: 2.2rem; line-height: 1.3; margin-bottom: 20px;">
+        <section class="lp-hero" style="background: linear-gradient(135deg, #fffcf9 0%, #fff7ed 100%); margin-top: 0;">
+            <span class="crisis-text">⚠️ その「お布施」、10年で240万円の損。</span>
+            <h1 style="font-size: 2.4rem; line-height: 1.3; margin-bottom: 20px;" class="font-impact">
                 まだ大手キャリアに<br>
                 <span style="color: var(--primary); text-decoration: underline;">「お布施」</span>を続けますか？
             </h1>
@@ -31,100 +39,174 @@
             </p>
         </section>
 
+        <!-- Loss Visualization -->
+        <section class="edu-section">
+            <h2 class="edu-title">「損したくない」あなたへ。<br>10年間のシミュレーション</h2>
+            <div class="loss-chart">
+                <p style="font-weight: 800; font-size: 0.9rem; margin-bottom: 20px; text-align: center;">
+                    大手キャリア(1万円) vs 格安SIM(3千円) の差額
+                </p>
+                <div class="chart-row">
+                    <div class="chart-label">1年間</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar" style="width: 25%;"></div>
+                        <span class="chart-value">8.4万円</span>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-label">5年間</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar" style="width: 60%;"></div>
+                        <span class="chart-value">42万円</span>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-label">10年間</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar" style="width: 100%;"></div>
+                        <span class="chart-value">84万円 /人</span>
+                    </div>
+                </div>
+                <p style="text-align: center; color: var(--danger); font-weight: 900; margin-top: 20px;" class="font-impact">
+                    家族4人なら、10年でなんと約240万円以上の差！
+                </p>
+            </div>
+        </section>
+
+        <!-- Specific Benefits: What can you do with 5,000 yen? -->
+        <section class="edu-section" style="background: #fff7ed; border-radius: 30px; padding: 40px;">
+            <h2 class="edu-title">浮いた月5,000円で、<br>生活はどう変わる？</h2>
+            <div class="luxury-list">
+                <div class="luxury-item">
+                    <span class="luxury-emoji">☕</span>
+                    <span class="luxury-text">スタバの新作を<br>月10回楽しめる</span>
+                </div>
+                <div class="luxury-item">
+                    <span class="luxury-emoji">🎬</span>
+                    <span class="luxury-text">NetflixとYouTube、<br>両方契約OK</span>
+                </div>
+                <div class="luxury-item">
+                    <span class="luxury-emoji">🍣</span>
+                    <span class="luxury-text">月1回の<br>ちょっと贅沢な外食</span>
+                </div>
+                <div class="luxury-item">
+                    <span class="luxury-emoji">🛍️</span>
+                    <span class="luxury-text">年間6万円で<br>最新家電も買える</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Myth Busting Section -->
         <section class="edu-section">
-            <h2 class="edu-title">格安SIMへの「3つの誤解」</h2>
+            <h2 class="edu-title">格安SIM 3つの誤解を完全解消</h2>
             <div class="myth-grid">
                 <!-- Myth 1 -->
                 <div class="myth-card">
-                    <div class="myth-header">❌ 誤解 その1</div>
-                    <h3 class="myth-question">「安いから、通信速度が遅いんでしょ？」</h3>
+                    <div class="myth-header">❌ 誤解 その1：速度が遅い？</div>
+                    <h3 class="myth-question">「お昼時に繋がらないのは嫌だ」</h3>
                     <div class="fact-box">
-                        <span class="fact-title">✅ 真実：大手と同じ「自社回線」が選べます</span>
-                        <p class="fact-text">ahamo、UQ、ワイモバイルは、ドコモ・au・ソフトバンクそのものの回線を使用。お昼時もゴールデンタイムも快適です。</p>
+                        <span class="fact-title">✅ 真実：大手と同じ「高品質プラン」があります</span>
+                        <p class="fact-text">ahamoやUQ等は、大手と全く同じ優先度で通信。格安SIM＝遅いという時代は終わりました。</p>
                     </div>
                 </div>
                 <!-- Myth 2 -->
                 <div class="myth-card">
-                    <div class="myth-header">❌ 誤解 その2</div>
-                    <h3 class="myth-question">「手続きが難しそうだし、番号が変わりそう」</h3>
+                    <div class="myth-header">❌ 誤解 その2：手続きが面倒？</div>
+                    <h3 class="myth-question">「お店に行って数時間待つのは無理」</h3>
                     <div class="fact-box">
-                        <span class="fact-title">✅ 真実：MNPワンストップで自宅完結！</span>
-                        <p class="fact-text">今の番号そのままで、元のキャリアへの連絡も不要。スマホ1台で最短10分で手続き完了します。</p>
+                        <span class="fact-title">✅ 真実：自宅で10分、カップ麺を待つ間。</span>
+                        <p class="fact-text">MNPワンストップ対応により、今の番号そのままで移動OK。今の会社への電話すら不要です。</p>
                     </div>
                 </div>
                 <!-- Myth 3 -->
                 <div class="myth-card">
-                    <div class="myth-header">❌ 誤解 その3</div>
-                    <h3 class="myth-question">「キャリアメールが使えなくなるのが困る」</h3>
+                    <div class="myth-header">❌ 誤解 その3：メアドが消える？</div>
+                    <h3 class="myth-question">「キャリアのメアドを変えたくない」</h3>
                     <div class="fact-box">
-                        <span class="fact-title">✅ 真実：月330円で「持ち運び」が可能に</span>
-                        <p class="fact-text">今は全キャリアで「メール持ち運びサービス」を提供中。今のメアドをそのまま格安SIMで使えます。</p>
+                        <span class="fact-title">✅ 真実：月330円でそのままずっと使えます</span>
+                        <p class="fact-text">「メール持ち運び」が登場。docomo、au、ソフトバンクのメアドを変えずに格安SIMへ移行可能です。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Logic Section: Why so high? -->
-        <section class="logic-box">
-            <h2 style="text-align: center; margin-bottom: 30px;">なぜ大手キャリアは「高い」のか？</h2>
-            <div class="logic-grid">
-                <div>
-                    <p style="margin-bottom: 20px; font-weight: bold;">私たちが払っている料金には、本来不要なコストが含まれています。</p>
-                    <div class="logic-item">
-                        <div class="logic-icon">🏬</div>
-                        <p>全国に配置された<strong>巨大な店舗網</strong>の維持費</p>
-                    </div>
-                    <div class="logic-item">
-                        <div class="logic-icon">📺</div>
-                        <p>莫大な<strong>テレビCM・広告</strong>の費用</p>
-                    </div>
-                    <div class="logic-item">
-                        <div class="logic-icon">👥</div>
-                        <p>店舗で対面サポートを行う<strong>人件費</strong></p>
-                    </div>
+        <!-- Step-by-Step Diagram -->
+        <section class="edu-section" style="border-top: 1px solid #eee;">
+            <h2 class="edu-title">乗り換えは、あっけないほど簡単</h2>
+            <div class="step-diagram">
+                <div class="diag-step">
+                    <div class="diag-circle">1</div>
+                    <p class="diag-desc">プランを選んで<br>ネット申込み</p>
                 </div>
-                <div style="background: white; padding: 30px; border-radius: 20px; text-align: center;">
-                    <p style="font-weight: 800; color: var(--primary); margin-bottom: 10px;">格安SIMはこれらをカット！</p>
-                    <p style="font-size: 0.9rem;">「店舗に行かない」「自分でネット契約する」<br>たったこれだけで、通信品質はそのままに<br>料金を<strong>1/3に圧縮</strong>できるのです。</p>
+                <div class="diag-step"><span style="font-size: 1.5rem; line-height: 50px;">➔</span></div>
+                <div class="diag-step">
+                    <div class="diag-circle">2</div>
+                    <p class="diag-desc">届いたプロファイルを<br>DLして完了</p>
+                </div>
+                <div class="diag-step"><span style="font-size: 1.5rem; line-height: 50px;">➔</span></div>
+                <div class="diag-step">
+                    <div class="diag-circle">3</div>
+                    <p class="diag-desc">あとは今までの<br>スマホを使うだけ</p>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; font-weight: 800;">
+                最短、当日中には通信が切り替わります。
+            </p>
+        </section>
+
+        <!-- User Voice -->
+        <section class="edu-section" style="background: #f8fafc; border-radius: 30px; padding: 40px;">
+            <h2 class="edu-title">利用者インタビュー</h2>
+            <div class="voice-card">
+                <div class="voice-avatar" style="background: #fed7aa; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👨‍💼</div>
+                <div class="voice-content">
+                    <p class="voice-quote">「正直、手続きが怖くて5年くらい放置してました。でもやってみたら10分。もっと早くやれば、新車が買えるくらいのお金が貯まってたのに…（笑）」</p>
+                    <p class="voice-name">30代 男性 / 大手D社からahamoへ</p>
+                </div>
+            </div>
+            <div class="voice-card">
+                <div class="voice-avatar" style="background: #fbcfe8; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👩‍🏫</div>
+                <div class="voice-content">
+                    <p class="voice-quote">「家族4人で月3万円払っていたのが1万円以下に。月2万円浮くので、子供の習い事の月謝を全部まかなえるようになりました。品質も全く変わりません！」</p>
+                    <p class="voice-name">40代 女性 / 大手A社からUQモバイルへ</p>
                 </div>
             </div>
         </section>
 
-        <!-- Comparison Table -->
+        <!-- Comparison Table with Urgency -->
         <section class="edu-section">
-            <h2 class="edu-title">今、選ぶべき「失敗しない」3枚</h2>
+            <h2 class="edu-title">今、選ぶべき「失敗しない」3選</h2>
             <div class="edu-table-wrapper">
                 <table class="edu-table">
                     <thead>
                         <tr>
-                            <th>プラン名</th>
-                            <th>向いている人</th>
+                            <th>プラン</th>
+                            <th>特徴</th>
                             <th>品質</th>
-                            <th>店舗</th>
+                            <th>キャンペーン</th>
                             <th>詳細</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>ahamo</strong></td>
-                            <td>面倒なのは嫌。高品質な回線がいい</td>
+                            <td>高品質・安定重視</td>
                             <td><span class="check-green">◎ 最速級</span></td>
-                            <td>オンライン</td>
+                            <td><span class="urgency-badge">dポイント最大還元中！</span></td>
                             <td><a href="https://px.a8.net/svt/ejp?a8mat=4AZIOE+OEX7M+4TIO+626XU" style="color: var(--primary); font-weight: bold;">詳細を見る</a></td>
                         </tr>
                         <tr>
                             <td><strong>楽天モバイル</strong></td>
-                            <td>動画を無制限で見たい・楽天ユーザー</td>
+                            <td>無制限・動画派</td>
                             <td><span class="check-green">○ 改善中</span></td>
-                            <td>あり</td>
+                            <td><span class="urgency-badge">最強プラン爆走中！</span></td>
                             <td><a href="https://network.mobile.rakuten.co.jp/" style="color: var(--primary); font-weight: bold;">詳細を見る</a></td>
                         </tr>
                         <tr>
                             <td><strong>UQモバイル</strong></td>
-                            <td>店舗サポートが必須。auユーザー</td>
+                            <td>店舗・安定重視</td>
                             <td><span class="check-green">◎ 安定</span></td>
-                            <td>あり</td>
+                            <td><span class="urgency-badge">月末までの乗換特典あり</span></td>
                             <td><a href="https://www.uqwimax.jp/mobile/plan/cwcp/" style="color: var(--primary); font-weight: bold;">詳細を見る</a></td>
                         </tr>
                     </tbody>
@@ -132,14 +214,29 @@
             </div>
         </section>
 
-        <!-- Quick Diagnosis -->
-        <section class="diag-card">
-            <h2 style="text-align: center;">🔍 あなたの結論は？3秒診断</h2>
+        <!-- Quick Diagnosis CTA -->
+        <section class="diag-card" style="border: 4px solid var(--primary);">
+            <h2 style="text-align: center; margin-bottom: 20px;" class="font-impact">🔍 あなたの結論は？3秒診断</h2>
+            <p style="text-align: center; font-weight: 800; color: var(--text-muted); margin-bottom: 30px;">
+                今の使い方にぴったりの1枚を選んでください。
+            </p>
             <div class="diag-grid">
-                <div class="diag-item" onclick="location.href='https://px.a8.net/svt/ejp?a8mat=4AZIOE+OEX7M+4TIO+626XU'">「ドコモ品質」で<br>20GB以上使いたい</div>
-                <div class="diag-item" onclick="location.href='https://network.mobile.rakuten.co.jp/'">「無制限」で<br>動画を楽しみ尽くしたい</div>
-                <div class="diag-item" onclick="location.href='https://www.uqwimax.jp/mobile/plan/cwcp/'">「店舗」があれば<br>安心。安くもしたい</div>
+                <div class="diag-item" onclick="location.href='https://px.a8.net/svt/ejp?a8mat=4AZIOE+OEX7M+4TIO+626XU'">
+                    <span style="font-size: 0.8rem; opacity: 0.7;">ドコモ回線がいい</span><br>
+                    <strong>ahamo</strong> で<br>20GB以上使いたい
+                </div>
+                <div class="diag-item" onclick="location.href='https://network.mobile.rakuten.co.jp/'">
+                    <span style="font-size: 0.8rem; opacity: 0.7;">とにかくギガ使い放題</span><br>
+                    <strong>楽天モバイル</strong> で<br>動画を楽しみ尽くしたい
+                </div>
+                <div class="diag-item" onclick="location.href='https://www.uqwimax.jp/mobile/plan/cwcp/'">
+                    <span style="font-size: 0.8rem; opacity: 0.7;">店舗で相談したい</span><br>
+                    <strong>UQモバイル</strong> で<br>安心して安くしたい
+                </div>
             </div>
+            <p style="text-align: center; margin-top: 30px; font-weight: 900; color: var(--danger);">
+                ⚠️ キャンペーンは予告なく終了する場合があります。<br>今月のうちに「脱・お布施」してしまいましょう！
+            </p>
         </section>
 
         <footer style="margin-top: 80px; text-align: center; color: var(--text-muted); padding: 40px 0; border-top: 1px solid var(--border-color);">
