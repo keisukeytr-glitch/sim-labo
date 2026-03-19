@@ -926,7 +926,64 @@ header h1 {
   border: 1px solid #fecdd3;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  /* Header & Logo */
+  header {
+    padding: 12px 0 !important; /* Global sticky header padding */
+    position: fixed !important;
+  }
+  .header-inner {
+    padding: 0 15px;
+  }
+  .logo-text {
+    font-size: 1.1rem;
+  }
+  .update-badge {
+    padding: 2px 8px;
+    font-size: 0.65rem;
+  }
+
+  /* Hero Section (When header acts as hero) */
+  header.lp-header, 
+  header:not(.sticky-nav) {
+    padding: 40px 0 50px !important; /* Reduce large hero header padding */
+  }
+
+  header h1 {
+    font-size: 1.8rem !important;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+  }
+
+  .hero-flex {
+    flex-direction: column-reverse; /* Image below text on mobile */
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero-image {
+    flex: 0 0 auto;
+    width: 180px;
+    margin: 0 auto;
+  }
+  
+  .hero-image img {
+    max-width: 180px;
+  }
+
+  .hero-subline {
+    font-size: 1.1rem;
+  }
+
+  /* Speech Bubble (Edu LP analogy) */
+  .edu-loss-analogy {
+    padding: 15px;
+    margin-top: 15px;
+  }
+  .edu-loss-analogy p {
+    font-size: 0.95rem;
+  }
+
   .step-diagram { flex-direction: column; gap: 30px; }
   .voice-card { flex-direction: column; align-items: center; text-align: center; }
 }
