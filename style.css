@@ -499,6 +499,23 @@ header h1 {
   }
 }
 
+/* Diagnosis Section Professional CTA */
+.cta-btn-pro {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #3b82f6;
+    color: white;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+}
+.cta-btn-pro:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
 /* LP Specific */
 .lp-hero {
   padding: 80px 20px;
