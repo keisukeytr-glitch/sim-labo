@@ -145,6 +145,14 @@
             text-align: center;
             margin-top: 20px;
         }
+        .urgency-high {
+            color: #dc2626;
+            font-weight: 900;
+            background: #fee2e2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
 
         /* Luxury list enhancements */
         .luxury-list {
@@ -318,7 +326,7 @@
     <header>
         <div class="header-inner">
             <a href="index.html" class="logo-text">SIM比較ラボ</a>
-            <div class="update-badge">2026年3月21日 更新</div>
+            <div id="dynamic-date" class="update-badge">2026年3月 更新</div>
         </div>
     </header>
 
@@ -658,7 +666,7 @@
                             <td><strong>ワイモバイル</strong></td>
                             <td>家族割・PayPay</td>
                             <td><span class="check-green">◎ 安定（SB回線）</span></td>
-                            <td><span class="urgency-badge">最大20,000pt還元中！</span></td>
+                            <td><span class="urgency-badge"><span class="urgency-high">3/31まで</span> 最大2万pt還元</span></td>
                             <td>
                                 <a href="https://www.ymobile.jp/" style="color: var(--primary); font-weight: bold;">家族みんなで安く。公式サイトへ</a>
                                 <span class="cta-micro-copy">✅ 3/31まで「親子割」受付中</span>
@@ -809,5 +817,14 @@
             <p style="font-size: 0.8rem; margin-top: 10px;"><a href="index.html" style="color: var(--text-muted);">総合ポータルに戻る</a></p>
         </footer>
     </div>
+    <script>
+        // Dynamic date update
+        const dateEl = document.getElementById('dynamic-date');
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const date = now.getDate();
+        dateEl.textContent = `${year}年${month}月${date}日 更新`;
+    </script>
 </body>
 </html>
